@@ -1,0 +1,186 @@
+@import url('https://fonts.googleapis.com/css?family=Poller+One');
+
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100vh;
+}
+
+body {
+    background-color: black;
+    background-image: url('../img/battle.jpg');
+    background-size: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+#categories {
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+button {
+    margin: 10px;
+    padding: 10px;
+    font-family: 'Poller One', cursive;
+    font-size: 2em;
+    transition: all 0.2s ease-in-out;
+    border-radius: 10px;
+    border: 2px solid black;
+    background-color: black;
+    color: yellow;
+    cursor: pointer;
+}
+
+button:hover {
+    /*background-color: #a89984;*/
+    -webkit-box-shadow:0 0 25px rgba(224,136,128,255);
+    -moz-box-shadow: 0 0 25px rgba(224,136,128,255);
+    box-shadow:0 0 25px rgba(224,136,128,255);
+}
+
+.cards-container {
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 99%);
+    gap: 20px;
+}
+
+.card {
+    background-color: rgba(210, 180, 140, 0.8);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    transition: background-color 0.3s ease-in-out, transform .3s ease-in-out;
+}
+
+.card:hover {
+    background-color: rgba(235, 219, 178, 0.9);
+    /* glowing border: */
+    -webkit-box-shadow:0 0 25px rgba(122,143,199,255);
+    -moz-box-shadow: 0 0 25px rgba(122,143,199,255);
+    box-shadow:0 0 25px rgba(122,143,199,255);
+    transform: scale(1.05);
+}
+
+.card .data-row {
+    display: flex;
+
+}
+
+.data-row label {
+    font-weight: bold;
+    flex: 1;
+    color: rgba(115, 110, 90, 0.9);
+}
+
+.data-row span {
+    flex: 2;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.navigation-button {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 0;
+}
+
+.navigation-button.next {
+    right: 0;
+}
+
+.navigation-button.prev {
+    left: 0;
+}
+
+.navigation-button.prev img {
+    transform: scale(-1);
+}
+
+.spaceship {
+    width: 100px;
+    height: auto;
+    transform: rotate(45deg);
+    position: absolute;
+    top: 100%;
+    left: -100%;
+}
+
+#bgvid { 
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    transform: translateX(-50%) translateY(-50%);
+    background: url('../img/stars_background.png') no-repeat;
+  background-size: cover;
+  transition: 1s opacity;
+}
+
+#cockpit {
+    position: fixed;
+    bottom: -32vh;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 75vh;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .3s ease-in-out;
+}
+
+.fade-in {
+    animation: fade 1s;
+}
+
+@keyframes fade {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@media (min-width: 769px) {
+    .cards-container {
+        grid-template-columns: repeat(auto-fill, 49%);
+    }
+}
+
+@media (min-width: 770px) and (max-width: 998px){
+    .cards-container {
+        grid-template-columns: repeat(auto-fill, 48.5%);
+    }
+}
+
+@media (min-width: 1024px) {
+    .cards-container {
+        grid-template-columns: repeat(auto-fill, 32%);
+    }
+}
+
+
